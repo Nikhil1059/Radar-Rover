@@ -1,1 +1,40 @@
+Item,Quantity,Store,Purpose,Cost (INR)
+DC-DC Buck Converter, 1, Amazon, Voltage regulation, 177.00
+Servo Mount (Pan/Tilt), 1, Amazon,Sensor sweeping mechanism,179.00
+DRV8833 Motor Driver (Replacement),1,Amazon,Actuator control,145.00
+VL53L0X ToF Distance Sensor,1,Robu.in,Laser distance tracking (Radar),195.00
+Buck Converter (Broken Potentiometer),1,Robu.in,Initial power testing,37.00
+N20 Geared Motors with Encoders,2,Robu.in,Propulation and wheel odometry,880.00
+Robu.in Tax,1,Robu.in,Order taxes,169.00
+TB6612FNG Motor Driver (Burned out),1,Flyrobo,Initial motor driver testing,149.00
+Battery Holder,1,Flyrobo,Power cells housing,17.00
+NRF Module Adapter,1,Flyrobo,Wireless hardware testing,35.00
+Castor Wheel,1,Flyrobo,Chassis balance wheel,24.00
+ESP8266 ESP-01 Adapter,1,Flyrobo,Microcontroller breadboard breakout,24.00
+Flyrobo Delivery Fee,1,Flyrobo,Shipping charges,59.00
+Digital Multimeter,1,Tech Delivery,Circuit and voltage diagnostics,148.00
+IR Transmitter,1,Tech Delivery,Sensor testing,4.00
+Header Strips (Male & Female),1,Tech Delivery,Component mounting on stripboard,57.70
+Rainbow Ribbon Wire,1,Tech Delivery,Internal circuit wiring,25.50
+Male Connector Wires,1,Tech Delivery,Jumper connections,50.80
+Stripboard / Perfboard,1,Tech Delivery,Soldering circuit base,13.00
+NRF Adapter Board,1,Tech Delivery,Wireless layout,76.30
+ESP32 Development Board,1,Tech Delivery,Central micro-ROS node over Wi-Fi,423.00
+Tech Delivery Order 1 Fees,1,Tech Delivery,Shipping (60) + GST (54.5),114.50
+Soldering Flux,1,Tech Delivery,Circuit assembly fabrication,13.00
+18650 Battery Charger,1,Tech Delivery,Cell power replenishment,127.00
+Soldering Wire,1,Tech Delivery,Circuit connection material,17.00
+Drill Bits,1,Tech Delivery,Chassis adjustments,81.40
+Drill Chuck Set,1,Tech Delivery,Fabrication tool attachment,110.00
+N20 Motor Mounting Brackets,2,Tech Delivery,Securing motors to frame,34.00
+Soldering Iron Stand,1,Tech Delivery,Lab workbench safety gear,26.00
+N20 Motor Wheels & Fees,1,Tech Delivery,Wheels + GST (106.4) + Shipping (115),221.40
+BC547 Transistor,1,Tech Delivery,General switching logic practice,9.00
+Heat Shrink Tubes,1,Tech Delivery,Wire insulation and protection,17.00
+Female-to-Male Jumper Wires,1,Tech Delivery,Prototyping connections,21.00
+Desoldering Wick,1,Tech Delivery,Correcting circuit soldering mistakes,13.00
+Soldering Iron,1,Tech Delivery,Primary assembly tool,280.00
+18650 Batteries,2,Sumeet Instruments,Main mobile power source cells,212.00
+Sumeet Instruments Order Fees,1,Sumeet Instruments,Shipping(78)+GST(52.2)+Conv(12.66),142.86
 
+Total Budget Spent is:   4649.00 rupees ~ 49.2$
