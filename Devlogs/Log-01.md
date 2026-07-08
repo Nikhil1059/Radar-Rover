@@ -9,5 +9,21 @@ Also i have used Screws for fixing everything in place.
 
 **Date** : June 28th
 
-<img src = "Images/The_chassis.jpg" width = "300" height = "400" alt = "The Chassis" />
-<img src = "Images/Chassis2.jpg" width = "300" height = "400" alt = "The Chassis_2" />
+
+
+<p align="center">
+  <table>
+    <tr>
+      <td style="text-align: center; border: none; background: transparent;">
+        <!-- First Image -->
+       <img src = "Images/The_chassis.jpg" width = "300" height = "400" alt = "The Chassis" /><br>
+        <em>The Chassis</em>
+      </td>
+      <td style="text-align: center; border: none; background: transparent;">
+        <!-- Second Image -->
+        <img src = "Images/Chassis2.jpg" width = "300" height = "400" alt = "The Chassis_2" /><br>
+        <em>The Chassis bottom</em>
+      </td>
+    </tr>
+  </table>
+</p>
