@@ -1,10 +1,10 @@
 Item,Quantity,Purpose,Cost (INR)
-DC-DC Buck Converter, 1 ,Voltage regulation,  177.00
-Servo Mount (Pan/Tilt), 1 ,Sensor sweeping mechanism,  179.00
-DRV8833 Motor Driver (Replacement), 1 ,Actuator control,  145.00
+DC-DC Buck Converter, 1 ,Voltage regulation,  200.00
+Servo Mount (Pan/Tilt), 1 ,Sensor sweeping mechanism,  200.00
+DRV8833 Motor Driver (Replacement), 1 ,Actuator control,  200.00
 VL53L0X ToF Distance Sensor, 1 ,Laser distance tracking (Radar),  195.00
 Buck Converter (Broken Potentiometer), 1 ,Initial power testing,  37.00
-N20 Geared Motors with Encoders, 2 ,Propulsion and wheel odometry,  1049.00
+N20 Geared Motors with Encoders, 2 ,Propulsion and wheel odometry,  1100.00
 Battery Holder, 1 ,Power cells housing,  17.00
 Castor Wheel, 1 ,Chassis balance wheel,  24.00
 Digital Multimeter, 1 ,Circuit and voltage diagnostics,  148.00
@@ -12,25 +12,25 @@ Header Strips (Male & Female), 1 ,Component mounting on stripboard,  57.70
 Rainbow Ribbon Wire, 1 ,Internal circuit wiring,  25.50
 Male Connector Wires, 1 ,Jumper connections,  50.80
 Stripboard / Perfboard, 1 ,Soldering circuit base,  13.00
-ESP32 Development Board, 1 ,Central micro-ROS node over Wi-Fi,  537.50
+ESP32 Development Board, 1 ,Central micro-ROS node over Wi-Fi,  600.00
 Soldering Flux, 1 ,Circuit assembly fabrication,  13.00
 18650 Battery Charger, 1 ,Cell power replenishment,  127.00
-Soldering Wire, 1 ,Circuit connection material,  17.00
+Soldering Wire, 1 ,Circuit connection material,  20.00
 Drill Bits, 1 ,Chassis adjustments,  81.40
-Drill Chuck Set, 1 ,Fabrication tool attachment,  110.00
+Drill Chuck Set, 1 ,Fabrication tool attachment,  150.00
 N20 Motor Mounting Brackets, 2 ,Securing motors to frame,  34.00
 Soldering Iron Stand, 1 ,Lab workbench safety gear,  26.00
-N20 Motor Wheels, 2 ,Propulsion contact wheels,  221.40
+N20 Motor Wheels, 2 ,Propulsion contact wheels,  300.00
 BC547 Transistor, 1 ,General switching logic practice, 9.00
 Heat Shrink Tubes, 1 ,Wire insulation and protection,  17.00
 Female-to-Male Jumper Wires, 1 ,Prototyping connections,  21.00
 Desoldering Wick, 1 ,Correcting circuit soldering mistakes,  13.00
-Soldering Iron, 1 ,Primary assembly tool,  280.00
+Soldering Iron, 1 ,Primary assembly tool,  300.00
 18650 Batteries, 2 ,Main mobile power source cells,  354.86
 MDF Board for Chassis, 1 ,Structural frame base,  300.00
-Jumper Wires Pack, 1 ,Circuit connections,  150.00
+Jumper Wires Pack, 1 ,Circuit connections,  200.00
 SG90 Servo Motors, 2 ,Pan and tilt sweeping mechanism,  200.00
 C-Type Cable, 1 ,Microcontroller power and serial interface,  200.00
 
-Total Price: 4,649.00 INR (~$55.00 USD)
+Total Price: 5,220.86 INR (~$55.00 USD)
 All the prices given are in Indian rupees.
