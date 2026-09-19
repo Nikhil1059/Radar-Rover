@@ -43,3 +43,72 @@ If you feel like you would want to know the journey of how this project is being
  **SG90 Pan-Tilt Servos**
 * Pan Servo Signal -> ESP32 GPIO 13
 * Tilt Servo Signal -> ESP32 GPIO 25
+
+### How It Works & Getting It Running:
+To get this rover mapping rooms, we bridge an ESP32 microcontroller running micro-ROS over Wi-Fi directly to a Linux Mint laptop running ROS 2. Instead of spending a fortune on a real LiDAR, the ESP32 handles a low-level multitasking loop. It reads wheel encoders via hardware interrupts, controls the DRV8833 motor driver, sweeps an SG90 servo holding a VL53L0X Time-of-Flight (ToF) laser sensor across a 180 degrees, and streams everything over UDP packets to the laptop.   
+
+On the laptop side, a Python node calculates wheel odometry from raw encoder ticks, a static transform publisher links the physical chassis to the laser, and SLAM Toolbox stitches the sweeping laser arcs together with wheel movement to paint a live 2D floor plan in RViz2.   
+
+Follow these step-by-step commands to boot up the entire stack and start mapping your room:
+
+**Step 1: Flash the ESP32 Firmware**
+ * Open your project in VS Code/PlatformIO.
+ * Ensure your platformio.ini uses a stable framework configuration and includes the micro-ROS platformio library.
+ *Update your Wi-Fi credentials (ssid, password) and your laptop's local IP address (agent_ip) inside src/main.cpp.
+ * Build and upload the code to your ESP32
+
+ **Step 2: The 5-Terminal Master Execution Loop**
+
+ Terminal 1: Start the micro-ROS Agent
+  This acts as the network bridge, catching the UDP Wi-Fi data packets from your ESP32 and injecting them straight into ROS 2:
+     
+       ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888 
+
+ Terminal 2: Launch the Wheel Odometry Node
+  Navigate to your project directory where your Python odometry script lives:  
+
+       python3 odom_publisher.py 
+
+ Terminal 3: Publish the Static Sensor Transform
+  Tell ROS 2 exactly where your sweeping ToF sensor is mounted relative to the center of the wheel axle
+  (11.8cm forward & 8cm up): 
+
+      ros2 run tf2_ros static_transform_publisher --x 0.118 --y 0.0 --z 0.08 --yaw 0 --pitch 0 --roll 0 --frame-id base_footprint --child-frame-id  laser_frame
+
+Terminal 4: Launch SLAM Toolbox
+  Boot up the 2D mapping engine to start processing your sensor data into an occupancy grid map:
+
+    ros2 launch slam_toolbox online_async_launch.py use_sim_time:=false
+
+Terminal 5: Keyboard Teleoperation
+  Run the native ROS 2 teleop node to drive your rover manually using your laptop keyboard:
+
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+
+**Step 3: Visualize and Map in RViz2**
+Open a 6th terminal window to boot up the lightweight 3D visualizer:
+     ```rviz```
+
+Once RViz2 opens on your screen, configure these quick settings on the left sidebar:
+
+ 1. Fixed Frame: Change map to odom initially (switch to map once SLAM Toolbox initializes its grid)
+ 2. Add Laser Scan (/scan):
+     -> Click Add (bottom left) $\rightarrow$ Select the By topic tab $\rightarrow$ Double-click /scan (LaserScan).  
+     -> Expand the LaserScan menu
+     -> Change Reliability Policy to Best Effort (Mandatory for micro-ROS Wi-Fi streams).
+     -> Set Size (m) to 0.05 so the laser points are bold and clear.
+     -> Change Color Transformer to FlatColor and pick a bright color like red or green.
+ 3.  Add Map (/map):
+     -> Click Add - By topic tab - Double-click /map (Map).
+     -> Under Map properties, ensure Durability Policy is set to Transient Local. (Pro-tip: You can uncheck this map box if you just want to see clean            red laser borders drawing your room perimeter in real time!)
+ 4. Add Robot TF:
+    -> Click Add - By display type tab - Double-click TF to see your coordinate frames moving. 
+
+Now, use your keyboard control terminal (i, j, l, k) to drive the rover around your room. Watch as your Pseudo-LiDAR sweep combines with wheel odometry to paint an accurate, real-time blueprint of your walls and furniture right on your screen!
+
+     
+
+      
+  
+
