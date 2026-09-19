@@ -44,6 +44,10 @@ If you feel like you would want to know the journey of how this project is being
 * Pan Servo Signal -> ESP32 GPIO 13
 * Tilt Servo Signal -> ESP32 GPIO 25
 
+
+<img src="Circuit.png" alt="Circuit Diagram" width="500">
+
+
 ### How It Works & Getting It Running:
 To get this rover mapping rooms, we bridge an ESP32 microcontroller running micro-ROS over Wi-Fi directly to a Linux Mint laptop running ROS 2. Instead of spending a fortune on a real LiDAR, the ESP32 handles a low-level multitasking loop. It reads wheel encoders via hardware interrupts, controls the DRV8833 motor driver, sweeps an SG90 servo holding a VL53L0X Time-of-Flight (ToF) laser sensor across a 180 degrees, and streams everything over UDP packets to the laptop.   
 
