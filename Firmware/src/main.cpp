@@ -16,9 +16,9 @@
 #include <sensor_msgs/msg/laser_scan.h>
 
 // Wifi credentials and configuration
-char ssid[] = "Airtel_kama_4438";
-char password[] = "70329kamal14438";
-IPAddress agent_ip(192, 168, 1, 13);
+char ssid[] = "Your_Wifi_SSID";
+char password[] = "Your_Wifi_Password";
+IPAddress agent_ip(192, 168, xx,xx ); // Your laptop IP Address
 size_t agent_port = 8888;
 
 // Motor pins (DRV8833)
