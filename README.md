@@ -49,9 +49,9 @@ If you feel like you would want to know the journey of how this project is being
 
 
 ### How It Works & Getting It Running:
-To get this rover mapping rooms, we bridge an ESP32 microcontroller running micro-ROS over Wi-Fi directly to a Linux Mint laptop running ROS 2. Instead of spending a fortune on a real LiDAR, the ESP32 handles a low-level multitasking loop. It reads wheel encoders via hardware interrupts, controls the DRV8833 motor driver, sweeps an SG90 servo holding a VL53L0X Time-of-Flight (ToF) laser sensor across a 180 degrees, and streams everything over UDP packets to the laptop.   
+For this rover to map rooms I used an esp32 and micro-ROS. It basically reads all the data of the wheel encoders, accelerometer etc and sends it over to my laptop via wifi which runs ROS2. It contains a VL53L0x TOF sensor thats mounted to a servo that sweeps 180 degrees and streams that data to the laptop as well.   
 
-On the laptop side, a Python node calculates wheel odometry from raw encoder ticks, a static transform publisher links the physical chassis to the laser, and SLAM Toolbox stitches the sweeping laser arcs together with wheel movement to paint a live 2D floor plan in RViz2.   
+On the laptop side a python node calculates the wheel odometry from encoder ticks and also uses SLAM Toolbox to combine the sweeping of servo along with the wheel encoders and creates a 2d map in RViz2. 
 
 Follow these step-by-step commands to boot up the entire stack and start mapping your room:
 
@@ -61,7 +61,7 @@ Follow these step-by-step commands to boot up the entire stack and start mapping
  *Update your Wi-Fi credentials (ssid, password) and your laptop's local IP address (agent_ip) inside src/main.cpp.
  * Build and upload the code to your ESP32
 
- **Step 2: The 5-Terminal Master Execution Loop**
+ **Step 2: Terminal commands**
 
  Terminal 1: Start the micro-ROS Agent
   This acts as the network bridge, catching the UDP Wi-Fi data packets from your ESP32 and injecting them straight into ROS 2:
@@ -98,16 +98,16 @@ Once RViz2 opens on your screen, configure these quick settings on the left side
 
  1. Fixed Frame: Change map to odom initially (switch to map once SLAM Toolbox initializes its grid)
  2. Add Laser Scan (/scan):
-     -> Click Add (bottom left) $\rightarrow$ Select the By topic tab $\rightarrow$ Double-click /scan (LaserScan).  
+     -> Click Add (bottom left) right -> the By topic tab -> Double-click /scan (LaserScan).  
      -> Expand the LaserScan menu
      -> Change Reliability Policy to Best Effort (Mandatory for micro-ROS Wi-Fi streams).
-     -> Set Size (m) to 0.05 so the laser points are bold and clear.
+     -> Set Size to 0.05 so the laser points are bold and clear.
      -> Change Color Transformer to FlatColor and pick a bright color like red or green.
  3.  Add Map (/map):
-     -> Click Add - By topic tab - Double-click /map (Map).
-     -> Under Map properties, ensure Durability Policy is set to Transient Local. (Pro-tip: You can uncheck this map box if you just want to see clean            red laser borders drawing your room perimeter in real time!)
+     -> Click Add -> By topic tab -> Double-click /map (Map).
+     -> Under Map properties, ensure Durability Policy is set to Transient Local. (tip: You can uncheck this map box if you just want to see clean            red laser borders drawing your room perimeter in real time!)
  4. Add Robot TF:
-    -> Click Add - By display type tab - Double-click TF to see your coordinate frames moving. 
+    -> Click Add -> By display type tab -> Double-click TF to see your coordinate frames moving. 
 
 Now, use your keyboard control terminal (i, j, l, k) to drive the rover around your room. Watch as your Pseudo-LiDAR sweep combines with wheel odometry to paint an accurate, real-time blueprint of your walls and furniture right on your screen!
 
